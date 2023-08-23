@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Banner deduplication check</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .card-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card-body img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <img src="{{ url_for('static', filename='paytm_logo.png') }}" class="logo" alt="Paytm Logo">
+                        <h3 class="text-center">Banner deduplication check Result</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="result">
+
+                            <p><strong>Uploaded Image</strong></p>
+                            <p></p>
+                            <img src="{{uploaded_image}}" alt="Image">
+                            <p></p>
+                            <p><strong>Message:</strong> {{ text }}</p>
+                            {% if image_path[0] %}
+                            <img src = "{{image_path[0]}}", alt = "Image">
+                            {% endif %}
+                            <p></p>
+                            {% if image_path[1] %}
+                            <img src = "{{image_path[1]}}", alt = "Image">
+                            {% endif %}
+                            <p></p>
+                            {% if image_path[2] %}
+                            <img src = "{{image_path[2]}}", alt = "Image">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Banner deduplication check</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <img src="{{ url_for('static', filename='paytm_logo.png') }}" class="logo" alt="Paytm Logo">
+                        <h3 class="text-center">Banner deduplication check</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/score" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="image">Upload an image : </label>
+                                <input type="file" name="image" accept="image/*" required>
+                                <div class="form-group">
+                                    <label for="text">Enter the category_id : </label>
+                                    <input type="text" class="form-control" name="category_id" id="category_id" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="text">Enter the widget_type : </label>
+                                    <input type="text" class="form-control" name="widget_type" id="widget_type" required="">
+                                </div>                                
+                            </div>
+                            
+                            <button type="submit" value="Upload" class="btn btn-primary btn-block">Check deduplication</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
